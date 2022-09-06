@@ -21,7 +21,6 @@ ex) @RequestParam("name") String name
 => 외부의 @RequestParam("name")을 name 에 저장하게 함 (더 공부할것)
 
 
-
 <HelloControllerTest.java>
 
 @RunWith : 테스트 실행시 JUnit과 스프링 부트 테스트 사이의 연결자 역할
@@ -34,6 +33,7 @@ mvc.perform : MockMvc를 통해 ~의 주소로 http GET 요청을 함
 .andExpect(content().string(~)) : mvc.perform을 통해 content의 string(~)을 검증함
 .param : 테스트 시 요청 파라미터 설정 (String만 가능)
 ".andExpect(jsonPath("$.~",is(~)))" 에서 jsonpath : 응답을 필드별로 검증, $를 기준으로 필드명 명시 
+
 
 <HelloResponseDto.java>
 
@@ -51,7 +51,6 @@ mvc.perform : MockMvc를 통해 ~의 주소로 http GET 요청을 함
 
 //then
 ~
-
 assertThat(~) : assertj 라는 테스트 검증 라이브러리의 검증 메소드, 인자를 검증함
 
 
