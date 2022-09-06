@@ -1,0 +1,58 @@
+<공통>
+
+main 과 같은 폴더와 class를 test에 생성 후 test 실행가능
+@Test 부터 실행
+=> 기존 기능이 잘 보장되도록 함
+Lombok : Getter,Setter, 기본생성자 등을 어노테이션으로 자동 생성함
+
+
+<Application.java>
+
+@SpringBootApplication : 이 위치부터 읽어가기 시작(고로 최상단에 위치해야함)
+SpringApplication.run(Application.class,args); : 내부 WAS(Web Application Server) 실행 => 톰캣 설치를 안해도 되게 해줌
+
+
+<HelloController.java>
+
+@RestController : 컨트롤러를 json으로 반환하는 컨트롤러를 만듬
+@GetMapping : HTTP의 Method인 Get의 요청을 받을 수 있는 API 생성
+@RequesParam : 외부에서 API로 넘긴 파라미터를 가져오는 어노테이션
+ex) @RequestParam("name") String name
+=> 외부의 @RequestParam("name")을 name 에 저장하게 함 (더 공부할것)
+
+
+
+<HelloControllerTest.java>
+
+@RunWith : 테스트 실행시 JUnit과 스프링 부트 테스트 사이의 연결자 역할
+@WebMvcTest : Controller를 사용할 수 있게 해줌
+@Autowired : 빈을 주입받음
+빈 : 스프링이 관리하는 자바 객체
+private MockMvc mvc : 웹 API 테스트할 때 사용, 테스트의 시작점이 됨
+mvc.perform : MockMvc를 통해 ~의 주소로 http GET 요청을 함
+.andExpect(status().isOk()) : mvc.perform을 통해 검증함/200,404,500 등의 상태
+.andExpect(content().string(~)) : mvc.perform을 통해 content의 string(~)을 검증함
+.param : 테스트 시 요청 파라미터 설정 (String만 가능)
+".andExpect(jsonPath("$.~",is(~)))" 에서 jsonpath : 응답을 필드별로 검증, $를 기준으로 필드명 명시 
+
+<HelloResponseDto.java>
+
+@Getter : 선언된 모든 필드의 get 메소드를 생성 .getName()등을 가능하게 함
+@RequiredArgsConstructor : final 필드가 포함된 생성자을 생성함
+
+
+<HelloResponseDtoTest.java>
+
+//given
+~
+
+//when
+~
+
+//then
+~
+
+assertThat(~) : assertj 라는 테스트 검증 라이브러리의 검증 메소드, 인자를 검증함
+
+
+
