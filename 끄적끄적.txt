@@ -51,7 +51,21 @@ mvc.perform : MockMvc를 통해 ~의 주소로 http GET 요청을 함
 
 //then
 ~
+
 assertThat(~) : assertj 라는 테스트 검증 라이브러리의 검증 메소드, 인자를 검증함
 
 
+<JPA란?>
 
+ORM = (Object-Relational Mapping), 애플리케이션 class와 RDB(Relational DataBase)를 연결
+JPA = JAVA진영에서 ORM 기술을 표준으로 이용하는 인터페이스(Hibernate, opendJPA 등)
+=> SQL중심이 아닌 객체 중심으로 개발할 수 있게 함.
+
+
+자바 빈을 주입받는다 ? Autowired/setter/생성자 로 주입받음 그게 뭐지?
+Dto가 무엇인가?
+
+test하는 과정
+컨트롤러란 무엇인가?
+톰캣이란?
+메모리, 힙 차이?
